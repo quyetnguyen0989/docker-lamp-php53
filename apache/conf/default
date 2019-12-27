@@ -1,0 +1,29 @@
+<VirtualHost *:80>
+    ServerName hoatuoidamri.com
+    ServerAlias www.hoatuoidamri.com
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/site1
+    ErrorLog /var/log/apache2/site1_error.log
+    CustomLog /var/log/apache2/site1_access.log combined
+    LogLevel info
+    php_admin_value open_basedir "/var/www/site1/:."
+    php_admin_value safe_mode "on"
+    php_admin_value upload_tmp_dir "/tmp"
+    php_admin_value session.save_path "/tmp"
+#    ErrorLog /dev/stdout
+#    CustomLog /dev/stdout combined
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName site2.ru
+    ServerAlias www.site2.ru
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/site2
+    ErrorLog /var/log/apache2/site2_error.log
+    CustomLog /var/log/apache2/site2_access.log combined
+    LogLevel info
+    php_admin_value open_basedir "/var/www/site1/:."
+    php_admin_value safe_mode "on"
+    php_admin_value upload_tmp_dir "/tmp"
+    php_admin_value session.save_path "/tmp"
+</VirtualHost>
